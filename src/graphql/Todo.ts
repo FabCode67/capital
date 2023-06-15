@@ -15,7 +15,7 @@ export const TodoQuery = extendType({
         t.nonNull.list.nonNull.field("get", {
             type: "Todo",
             resolve(parent, args, context) {  
-                return context.prisma.todo.findMany();  // 1
+                return context.prisma.todo.findMany();  
             },
         });
     },
@@ -30,7 +30,7 @@ export const TodoMutation = extendType({
                 description: nonNull(stringArg()),
             },
             resolve(parent, args, context) { 
-                const newTodo = context.prisma.todo.create({   // 2
+                const newTodo = context.prisma.todo.create({   
                     data: {
                         description: args.description,
                     },
