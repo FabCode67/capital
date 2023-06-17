@@ -6,7 +6,7 @@ async function main() {
     const newTodo = await prisma.todo.create({
         data: {
           description: 'Fullstack tutorial for GraphQL',
-          checked: true,
+          checked: false,
         },
       })
 

@@ -5,7 +5,7 @@
 type Mutation {
   delete(id: Int!): Todo!
   post(description: String!): Todo!
-  updata(checked: Boolean!, description: String!, id: Int!): Todo!
+  update(checked: Boolean!, description: String!, id: Int!): Todo!
   updateChecked(checked: Boolean!, id: Int!): Todo!
   updateDescription(description: String!, id: Int!): Todo!
 }

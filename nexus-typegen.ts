@@ -51,7 +51,7 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     delete: NexusGenRootTypes['Todo']; // Todo!
     post: NexusGenRootTypes['Todo']; // Todo!
-    updata: NexusGenRootTypes['Todo']; // Todo!
+    update: NexusGenRootTypes['Todo']; // Todo!
     updateChecked: NexusGenRootTypes['Todo']; // Todo!
     updateDescription: NexusGenRootTypes['Todo']; // Todo!
   }
@@ -70,7 +70,7 @@ export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
     delete: 'Todo'
     post: 'Todo'
-    updata: 'Todo'
+    update: 'Todo'
     updateChecked: 'Todo'
     updateDescription: 'Todo'
   }
@@ -93,7 +93,7 @@ export interface NexusGenArgTypes {
     post: { // args
       description: string; // String!
     }
-    updata: { // args
+    update: { // args
       checked: boolean; // Boolean!
       description: string; // String!
       id: number; // Int!

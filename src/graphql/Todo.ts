@@ -1,5 +1,5 @@
 import { booleanArg, extendType, intArg, nonNull, objectType, stringArg } from "nexus";
-import { NexusGenObjects } from "../../nexus-typegen"; 
+// import { NexusGenObjects } from "../../nexus-typegen"; 
 export const Todo = objectType({
     name: "Todo", 
     definition(t) {  
@@ -64,7 +64,7 @@ export const TodoDeleteMutation = extendType({
   export const TodoUpdateMutation = extendType({
     type: "Mutation",
     definition(t) {
-        t.nonNull.field("updata", {
+        t.nonNull.field("update", {
             type: "Todo",
             args: {
                 id: nonNull(intArg()),
