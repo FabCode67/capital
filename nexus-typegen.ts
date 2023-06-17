@@ -49,7 +49,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
   Mutation: { // field return type
-    clearCompleted: NexusGenRootTypes['Todo']; // Todo!
+    clearCompleted: boolean; // Boolean!
     delete: NexusGenRootTypes['Todo']; // Todo!
     post: NexusGenRootTypes['Todo']; // Todo!
     update: NexusGenRootTypes['Todo']; // Todo!
@@ -71,7 +71,7 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
-    clearCompleted: 'Todo'
+    clearCompleted: 'Boolean'
     delete: 'Todo'
     post: 'Todo'
     update: 'Todo'

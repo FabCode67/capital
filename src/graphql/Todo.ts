@@ -92,22 +92,30 @@ export const TodoDeleteMutation = extendType({
       });
     },
   });
-  
-export  const ClearCompletedMutation = extendType({
+
+  export const ClearCompletedMutation = extendType({
     type: "Mutation",
     definition(t) {
-        t.nonNull.field("clearCompleted", {
-            type: "Todo",
-            resolve(parent, args, context){
-                return context.prisma.todo.deleteMany({
-                    where: {
-                        checked: true,
-                    },
-                })
-            }
-        })
-    }
-    })
+      t.nonNull.field("clearCompleted", {
+        type: "Boolean", // Updated return type to Boolean
+        async resolve(parent, args, context) {
+          try {
+                await context.prisma.todo
+                    .deleteMany({
+                        where: {
+                            checked: true,
+                        },
+                    });
+                return true;
+            } catch {
+                return false;
+            } // Return false if there's an error
+        },
+      });
+    },
+  });
+  
+
 
 
 
