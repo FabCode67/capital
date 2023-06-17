@@ -49,6 +49,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
   Mutation: { // field return type
+    clearCompleted: NexusGenRootTypes['Todo']; // Todo!
     delete: NexusGenRootTypes['Todo']; // Todo!
     post: NexusGenRootTypes['Todo']; // Todo!
     update: NexusGenRootTypes['Todo']; // Todo!
@@ -57,6 +58,8 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     get: NexusGenRootTypes['Todo'][]; // [Todo!]!
+    getOnlyActive: NexusGenRootTypes['Todo'][]; // [Todo!]!
+    getOnlyCompleted: NexusGenRootTypes['Todo'][]; // [Todo!]!
     getSingle: NexusGenRootTypes['Todo'] | null; // Todo
   }
   Todo: { // field return type
@@ -68,6 +71,7 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
+    clearCompleted: 'Todo'
     delete: 'Todo'
     post: 'Todo'
     update: 'Todo'
@@ -76,6 +80,8 @@ export interface NexusGenFieldTypeNames {
   }
   Query: { // field return type name
     get: 'Todo'
+    getOnlyActive: 'Todo'
+    getOnlyCompleted: 'Todo'
     getSingle: 'Todo'
   }
   Todo: { // field return type name

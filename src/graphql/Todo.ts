@@ -21,6 +21,39 @@ export const TodoQuery = extendType({
     },
 });
 
+export const GetOnlyCtiveTodoQuery = extendType({
+    type: "Query",
+    definition(t) {
+        t.nonNull.list.nonNull.field("getOnlyActive", {
+            type: "Todo",
+            resolve(parent, args, context) {
+                return context.prisma.todo.findMany({
+                    where: {
+                        checked: false,
+                    },
+                });
+            },
+        });
+    },
+});
+
+export const GetOnlyCompletedTodoQuery = extendType({
+    type: "Query",
+    definition(t) {
+        t.nonNull.list.nonNull.field("getOnlyCompleted", {
+            type: "Todo",
+            resolve(parent, args, context) {
+                return context.prisma.todo.findMany({
+                    where: {
+                        checked: true,
+                    },
+                });
+            },
+        });
+    },
+});
+
+
 export const TodoMutation = extendType({
     type: "Mutation",
     definition(t) {
@@ -60,6 +93,23 @@ export const TodoDeleteMutation = extendType({
     },
   });
   
+export  const ClearCompletedMutation = extendType({
+    type: "Mutation",
+    definition(t) {
+        t.nonNull.field("clearCompleted", {
+            type: "Todo",
+            resolve(parent, args, context){
+                return context.prisma.todo.deleteMany({
+                    where: {
+                        checked: true,
+                    },
+                })
+            }
+        })
+    }
+    })
+
+
 
   export const TodoUpdateMutation = extendType({
     type: "Mutation",
